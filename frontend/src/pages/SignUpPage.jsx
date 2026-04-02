@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAuthStore } from '../store/UseAuthStore';
+import { useAuthStore } from '../store/useAuthStore';
 import { MessageSquare,User,Mail,Lock,Eye,EyeOff,Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthImagePattern from '../components/AuthImagePattern';
@@ -114,15 +114,13 @@ const SignUpPage = () => {
      </div>
    </div>
   <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp}>
-                               {isSigningUp ? (
+          {isSigningUp ? (
             <>
               <Loader2 className="size-5 animate-spin" />
               Loading...
-            </>
-                               ) : (
-            "Create Account"
-                               )}
-                             </button>
+            </> ) : (
+            "Create Account"  )}
+     </button>
                       </form>
  <div className="text-center">
    <p className="text-base-content/60">

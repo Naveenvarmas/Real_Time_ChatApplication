@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuthStore } from "../store/UseAuthStore";
+import { useAuthStore } from "../store/useAuthStore";
 import { Camera, Mail, User } from "lucide-react";
 
 const ProfilePage = () => {
@@ -10,19 +10,6 @@ const ProfilePage = () => {
     try {
       const file = e.target.files[0];
       if (!file) return;
-
-      // ✅ Restrict file types (fix AVIF issue)
-      const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-      if (!allowedTypes.includes(file.type)) {
-        alert("Only JPG and PNG images are allowed");
-        return;
-      }
-
-      // ✅ Optional: restrict file size (e.g., 2MB)
-      if (file.size > 2 * 1024 * 1024) {
-        alert("Image size should be less than 2MB");
-        return;
-      }
 
       const reader = new FileReader();
 

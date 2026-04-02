@@ -5,7 +5,7 @@ import SettingsPage from "./pages/SettingsPage"
 import ProfilePage from "./pages/ProfilePage"
 import SignUpPage from "./pages/SignUpPage"
 import LoginPage from "./pages/LoginPage"
-import { useAuthStore } from "./store/UseAuthStore"
+import { useAuthStore } from "./store/useAuthStore"
 import { useEffect } from "react"
 import {Loader} from "lucide-react"
 import { Navigate } from "react-router-dom"
@@ -13,8 +13,10 @@ import { Toaster } from "react-hot-toast"
 import { useThemeStore } from "./store/useThemeStore"
 
 const App = () => {
-  const {authUser,checkAuth,isCheckingAuth}=useAuthStore();
+  const {authUser,checkAuth,isCheckingAuth,onlineUsers}=useAuthStore();
   const {theme}=useThemeStore();
+
+  console.log({onlineUsers});
   useEffect(()=>{
     checkAuth();
   },[checkAuth]);
